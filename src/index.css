@@ -32,6 +32,7 @@ body {
 
 .dice-container{
   display: grid;
+  gap: 10px;
   grid-template-columns: repeat(5, auto);
   align-items: center;
   justify-items: center;
