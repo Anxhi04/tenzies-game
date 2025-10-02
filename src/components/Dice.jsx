@@ -1,9 +1,9 @@
-export default function Dice(){
+export default function Dice(props){
   return(
     <>
-        <div className="dice">
-            1
-        </div>
+        <button className="dice">
+            {props.value}
+        </button>
     </>
   )
 }

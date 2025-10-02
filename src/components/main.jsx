@@ -5,20 +5,13 @@ export default function Main(){
     <>
         <div className="frame">
             <div className="content">
-               
-               <div><Dice/>
-                <Dice/>
-                <Dice/>
-                <Dice/>
-                <Dice/>
-              </div>
-              <div>
-                <Dice/>
-                <Dice/>
-                <Dice/>
-                <Dice/>
-                <Dice/></div> 
-            </div>
+                <div className="dice-container">
+               <Dice value={1}/><Dice value={1}/><Dice value={1}/><Dice value={1}/><Dice value={1}/>
+               <Dice value={1}/><Dice value={1}/><Dice value={1}/><Dice value={1}/><Dice value={1}/>
+               </div>
+
+                </div> 
+        
         </div>
     </>
   )
