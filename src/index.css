@@ -21,8 +21,17 @@ body {
 }
 .content{
   background: #f8f8f8;
-  width: 80%;
+  width: 95%;
   height: 90%;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-
+.content div{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

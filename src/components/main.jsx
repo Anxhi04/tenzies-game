@@ -1,9 +1,23 @@
+import Dice from "./Dice"
+
 export default function Main(){
   return(
     <>
         <div className="frame">
             <div className="content">
-                <h1>hello there</h1>
+               
+               <div><Dice/>
+                <Dice/>
+                <Dice/>
+                <Dice/>
+                <Dice/>
+              </div>
+              <div>
+                <Dice/>
+                <Dice/>
+                <Dice/>
+                <Dice/>
+                <Dice/></div> 
             </div>
         </div>
     </>
