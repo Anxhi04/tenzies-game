@@ -13,7 +13,10 @@ export default function Main(){
         return  dice.map(num => 
        <Dice value={num} />
     )
-}
+  
+}  function rollDice(){
+        setDice(allNewDice())
+    }
   return(
     <>
         <div className="frame">
@@ -21,6 +24,8 @@ export default function Main(){
                 <div className="dice-container">
                     {diceElements()}
                </div>
+
+               <button onClick={rollDice} className="rollBtn">Roll dice</button>
 
                 </div> 
         
