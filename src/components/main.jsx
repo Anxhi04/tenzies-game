@@ -8,6 +8,7 @@ export default function Main(){
     const gameWon = dice.every(die => die.isHeld && die.value === dice[0].value)
     const [seconds, setSeconds] = React.useState(0)
     const [isActive, setIsActive] = React.useState(false)
+    const [rollcount, setRollcount] = React.useState(0)
     const minutes = Math.floor(seconds / 60);
     const secondsDisplay = seconds % 60;
 
@@ -62,14 +63,16 @@ export default function Main(){
             setDice(oldDice => oldDice.map(die => 
             die.isHeld ? die : {
                 ...die,
-                value: Math.ceil(Math.random() * 6),
-    }))}
+                value: Math.ceil(Math.random() * 6), }))
+            setRollcount(prev=>prev+1)
+    }
  
     }
     function startNewGame(){
         setDice(allNewDice())
         setSeconds(0)
         setIsActive(true)
+        setRollcount(0)
     }
 
     function holdDice(index){
@@ -94,6 +97,7 @@ export default function Main(){
                     {gameWon &&<p>Congratulations! You won!</p>}
                 </div>
                 <h2 className="timer">Time {minutes<10 ? '0': ''}{minutes}:{secondsDisplay<10?'0':''}{secondsDisplay}</h2>
+                <h2 className="rollcount">Rolls: {rollcount}</h2>
                 <h1 className="title">Tenzies</h1>
                 <p className="instructions">Roll until all the dice are the same. Click each die to freeze 
                     it at its current value between rolls.</p>
