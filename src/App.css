@@ -46,6 +46,19 @@
   width: 60%;
 
 }
-/* .sr-only{
-  display: none;
-} */
+.timer{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 1.2rem;
+  font-weight:500;
+  color: rgb(99, 99, 99);
+}
+.rollcount{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-size: 1.2rem;
+  font-weight:500;
+  color: rgb(99, 99, 99);
+}
