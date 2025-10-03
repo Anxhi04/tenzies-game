@@ -9,7 +9,9 @@ export default function Main(){
     const [seconds, setSeconds] = React.useState(0)
     const [isActive, setIsActive] = React.useState(false)
     const [rollcount, setRollcount] = React.useState(0)
+    const [hoverStyles, setHoverStyles] = React.useState({});
     const minutes = Math.floor(seconds / 60);
+    
     const secondsDisplay = seconds % 60;
 
     const buttonRef = React.useRef(null)
@@ -52,6 +54,9 @@ export default function Main(){
               value={dice.value}
               isHeld={dice.isHeld}
               holdDice={() => holdDice(index)}
+              onMouseMove={(e) => handleMouseMove(index, e)}
+              onMouseLeave={() => handleMouseLeave(index)}
+              style={hoverStyles[index] || {}}
               />)
     }
 // Generate new value for dice which are not held 
@@ -86,7 +91,30 @@ export default function Main(){
    
     const text = gameWon ? "New Game" : "Roll"
 
-  
+  const handleMouseMove=(index, e)=>{
+    //marrim mdimensionet dhe pozicionin e butonit
+    const rect = e.target.getBoundingClientRect();
+    //marrim pozicionin e mausit brenda butonit
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    //distanca nga qendra e butonit
+    const moveX = (x - rect.width / 2) / 10;
+    const moveY = (y - rect.height / 2) / 10;
+
+    setHoverStyles((prev) => ({
+      ...prev,
+      [index]: {
+        boxShadow: `${moveX * 2}px ${moveY * 2}px 15px rgba(122, 71, 71, 0.66)`,
+      },
+    }));
+  }
+    const handleMouseLeave = (index) => {
+    setHoverStyles((prev) => ({
+      ...prev,
+      [index]: { transform: "translate(0,0)", boxShadow: "0 4px 6px rgba(0,0,0,0.3)" },
+    }));
+  }
+
 
   return(
     <>
