@@ -30,3 +30,6 @@
 .rollBtn:hover{
   background: rgb(237, 221, 221);
 }
+.dice.held{
+  background: rgb(238, 181, 181);
+}

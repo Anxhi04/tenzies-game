@@ -4,18 +4,31 @@ import React from "react"
 export default function Main(){
 
     const [dice, setDice] = React.useState(allNewDice())
-    function allNewDice(){
-        return new Array(10)
-                       .fill(0)
-                       .map(num => Math.ceil(Math.random()*6))
-    }
+    const [isHeld, setIsHeld] = React.useState(false)
+
+    function allNewDice() {
+        return new Array(10).fill(0).map(() => ({
+             value: Math.ceil(Math.random() * 6),
+             isHeld: false
+  }))
+}
+
     function diceElements(){
-        return  dice.map(num => 
-       <Dice value={num} />
-    )
-  
-}  function rollDice(){
+        return  dice.map((dice , index)=>
+        <Dice key={index} 
+              value={dice.value}
+              isHeld={dice.isHeld} 
+              holdDice={() => holdDice(index)}
+              />)
+    }
+
+    function rollDice(){
         setDice(allNewDice())
+    }
+    function holdDice(index){
+          setDice(oldDice => oldDice.map((dice, i) => 
+              i === index ? {...dice, isHeld: !dice.isHeld} : dice
+  ))
     }
   return(
     <>
