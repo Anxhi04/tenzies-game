@@ -6,6 +6,14 @@ export default function Main(){
 
     const [dice, setDice] = React.useState(allNewDice())
     const gameWon = dice.every(die => die.isHeld && die.value === dice[0].value)
+    const buttonRef = React.useRef(null)
+    console.log(buttonRef)
+
+    React.useEffect(() => {
+        if(gameWon){
+            buttonRef.current.focus()
+        }
+    }, [gameWon])
 
     function allNewDice() {
         return new Array(10).fill(0).map(() => ({
@@ -43,6 +51,8 @@ export default function Main(){
     
    
     const text = gameWon ? "New Game" : "Roll"
+
+
     
 
   return(
@@ -50,6 +60,9 @@ export default function Main(){
         <div className="frame">
             <div className="content">
                 {gameWon && <Confetti />}
+                <div aria-live="polite" className="sr-only">
+                    {gameWon &&<p>Congratulations! You won!</p>}
+                </div>
                 <h1 className="title">Tenzies</h1>
                 <p className="instructions">Roll until all the dice are the same. Click each die to freeze 
                     it at its current value between rolls.</p>
@@ -57,7 +70,7 @@ export default function Main(){
                     {diceElements()}
                </div>
 
-               <button onClick={rollDice} className="rollBtn">{text}</button>
+               <button ref={buttonRef} onClick={rollDice} className="rollBtn">{text}</button>
 
                 </div> 
         

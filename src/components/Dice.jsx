@@ -1,8 +1,13 @@
 export default function Dice(props){
   return(
     <>
-        <button onClick={props.holdDice} className={`dice ${props.isHeld ? "held": ""}`}>
+        <button onClick={props.holdDice} 
+        className={`dice ${props.isHeld ? "held": ""}`}
+                    aria-pressed={props.isHeld}
+                    aria-label={`Dice with value ${props.value},
+                                        ${props.isHeld ? "held" : "not held"}`}>
             {props.value}
+
         </button>
     </>
   )
