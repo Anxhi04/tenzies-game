@@ -30,3 +30,19 @@
 .rollBtn:hover{
   background: rgb(237, 221, 221);
 }
+.dice.held{
+  background: rgb(238, 181, 181);
+}
+.title{
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+.instructions{
+  margin-top: 1%;
+  margin-bottom: 4%;
+  font-size: 1.2rem;
+  color: rgb(99, 99, 99);
+  text-align: center;
+  width: 60%;
+
+}
