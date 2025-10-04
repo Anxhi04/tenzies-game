@@ -1,3 +1,5 @@
+This is a simple React game I built while learning React. The design is fully responsive, so it works smoothly on desktop, tablet, and mobile devices.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
